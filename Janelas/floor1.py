@@ -2,6 +2,7 @@ from PPlay.gameimage import *
 import string
 from Personagens.boneco import *
 from cores import *
+from Objetos.Interativos.porta import *
 
 
 class Floor1:
@@ -22,6 +23,7 @@ class Floor1:
     fundo = None
     delta = None
     paredes = []
+    objetosInterativos = []
     ult = 0
 
     # Criação dos personagens
@@ -34,6 +36,7 @@ class Floor1:
         # Inicialização dos elementos da janela
         self.fundo = GameImage("Imagens/Cenarios/1FLOOR/FUNDO.jpg")
         self.criaParedes()
+        self.criaObjetosInterativos()
 
         # Inicialização dos personagens
         self.wolf = Boneco("Imagens/Personagens/WOLF.png")
@@ -45,6 +48,7 @@ class Floor1:
         self.rodando = True
         while self.rodando:
             self.delta = self.console.janela.delta_time()
+            Constantes.delta = self.delta
 
             self.checaComandos()
 
@@ -72,6 +76,10 @@ class Floor1:
             self.paredes[i].x = posicoes[i][0]
             self.paredes[i].y = posicoes[i][1]
 
+    def criaObjetosInterativos(self):
+        porta = Porta("V",500,500)
+        self.objetosInterativos += [porta]
+
     def checaComandos(self):
         if self.ult > 0:
             self.ult -= 1
@@ -85,6 +93,11 @@ class Floor1:
         if self.apertou("ESC"):
             self.pausa()
 
+        if self.apertou("E"):
+            for objeto in self.objetosInterativos:
+                if self.wolf.colideNorte(objeto.sprite) or self.wolf.colideSul(objeto.sprite) or self.wolf.colideOeste(objeto.sprite) or self.wolf.colideLeste(objeto.sprite):
+                    objeto.ativa()
+
         self.checaMovimento()
 
     def checaMovimento(self):
@@ -93,6 +106,10 @@ class Floor1:
             b = False
             for parede in self.paredes:
                 if self.wolf.colideNorte(parede):
+                    b = True
+                    break
+            for objeto in self.objetosInterativos:
+                if self.wolf.colideNorte(objeto.sprite):
                     b = True
                     break
             if not b:
@@ -104,6 +121,10 @@ class Floor1:
                 if self.wolf.colideSul(parede):
                     b = True
                     break
+            for objeto in self.objetosInterativos:
+                if self.wolf.colideSul(objeto.sprite):
+                    b = True
+                    break
             if not b:
                 self.wolf.andaSul(self.delta)
 
@@ -113,6 +134,10 @@ class Floor1:
                 if self.wolf.colideOeste(parede):
                     b = True
                     break
+            for objeto in self.objetosInterativos:
+                if self.wolf.colideOeste(objeto.sprite):
+                    b = True
+                    break
             if not b:
                 self.wolf.andaOeste(self.delta)
 
@@ -120,6 +145,10 @@ class Floor1:
             b = False
             for parede in self.paredes:
                 if self.wolf.colideLeste(parede):
+                    b = True
+                    break
+            for objeto in self.objetosInterativos:
+                if self.wolf.colideLeste(objeto.sprite):
                     b = True
                     break
             if not b:
@@ -187,6 +216,8 @@ class Floor1:
 
     def atualizaJanela(self):
         self.fundo.draw()
+        for objeto in self.objetosInterativos:
+            objeto.desenha()
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()

@@ -1,10 +1,10 @@
 from PPlay.sprite import *
-
+from Constantes.constantes import *
 
 class Boneco:
     # Criaçao das variaveis
     boneco = None
-    velocidade = 100
+    velocidade = Constantes.velocidadeBoneco
     iniPosX = 400
     iniPosY = 400
 
