@@ -1,7 +1,9 @@
 from PPlay.gameimage import *
 import string
 
+from Objetos.Comuns.parede import Parede
 from Objetos.Interativos.alavanca import *
+from Objetos.Interativos.chave import Chave
 from Objetos.Interativos.plataforma import *
 from Personagens.boneco import *
 from cores import *
@@ -25,9 +27,11 @@ class Floor1:
     # Criacao elementos da janela
     fundo = None
     delta = None
-    paredes = []
-    objetosInterativos = []
-    plataformas = []
+    paredes = None
+    portas = None
+    alavancas = None
+    plataformas = None
+    chaves = None
     ult = 0
 
     # Criação dos personagens
@@ -40,6 +44,7 @@ class Floor1:
         # Inicialização dos elementos da janela
         self.fundo = GameImage("Imagens/Cenarios/1FLOOR/FUNDO.jpg")
         self.criaParedes()
+
         self.criaObjetosInterativos()
 
         # Inicialização dos personagens
@@ -60,8 +65,9 @@ class Floor1:
 
     def criaParedes(self):
         letras = list(string.ascii_uppercase[:14])
+        self.paredes = []
         for x in letras:
-            self.paredes += [Sprite("Imagens/Cenarios/1FLOOR/" + x + ".png")]
+            self.paredes += [Parede("Imagens/Cenarios/1FLOOR/" + x + ".png")]
         posicoes = [[50, 80],
                     [50, 90],
                     [310, 90],
@@ -77,17 +83,23 @@ class Floor1:
                     [690, 360],
                     [740, 90]]
         for i in range(len(self.paredes)):
-            self.paredes[i].x = posicoes[i][0]
-            self.paredes[i].y = posicoes[i][1]
+            self.paredes[i].setXY(posicoes[i][0], posicoes[i][1])
 
     def criaObjetosInterativos(self):
-        porta = Porta("H",500,500)
-        self.objetosInterativos += [porta]
-        alavanca = Alavanca("O",250,300)
-        self.objetosInterativos += [alavanca]
-        plataforma = Plataforma(350,250)
+        self.portas = []
+        porta = Porta("H", 500, 500, False, None)
+        portaChave = Porta("V",600,500,True,"123456")
+        self.portas += [porta]
+        self.portas += [portaChave]
+        self.alavancas = []
+        alavanca = Alavanca("O", 250, 300)
+        self.alavancas += [alavanca]
+        self.plataformas = []
+        plataforma = Plataforma(350, 250)
         self.plataformas += [plataforma]
-
+        self.chaves = []
+        chave = Chave(200, 300, "123456")
+        self.chaves += [chave]
 
     def checaComandos(self):
         if self.ult > 0:
@@ -103,9 +115,54 @@ class Floor1:
             self.pausa()
 
         if self.apertou("E"):
-            for objeto in self.objetosInterativos:
-                if self.wolf.colidiu(objeto.sprite):
-                    objeto.ativa()
+            for alavanca in self.alavancas:
+                if self.wolf.colidiu(alavanca.sprite):
+                    alavanca.ativa()
+
+            for porta in self.portas:
+                if self.wolf.colidiu(porta.sprite):
+                    if not porta.travada:
+                        porta.abre()
+                    else:
+                        if not len(self.wolf.inventario) == 0:
+                            for objeto in self.wolf.inventario:
+                                if isinstance(objeto,Chave):
+                                    if porta.destrava(objeto.codigo):
+                                        self.wolf.inventario.remove(objeto)
+                                        print("Porta destravada")
+                            if porta.travada:
+                                print("Porta trancada")
+                        else:
+                            print("Porta trancada")
+
+            for chave in self.chaves:
+                if self.wolf.colidiu(chave.sprite):
+                    self.wolf.pega(chave)
+
+        if self.apertou("L"):
+            for alavanca in self.alavancas:
+                if self.gang.colidiu(alavanca.sprite):
+                    alavanca.ativa()
+
+            for porta in self.portas:
+                if self.gang.colidiu(porta.sprite):
+                    if not porta.travada:
+                        porta.abre()
+                    else:
+                        if not len(self.gang.inventario) == 0:
+                            for objeto in self.gang.inventario:
+                                if isinstance(objeto,Chave):
+                                    if porta.destrava(objeto.codigo):
+                                        self.gang.inventario.remove(objeto)
+                                        print("Porta destravada")
+                            if porta.travada:
+                                print("Porta trancada")
+                        else:
+                            print("Porta trancada")
+
+            for chave in self.chaves:
+                if self.gang.colidiu(chave.sprite):
+                    self.gang.pega(chave)
 
         self.checaMovimento()
 
@@ -117,13 +174,15 @@ class Floor1:
             else:
                 plat.desativa()
 
+        objetosSolidos = []
+        objetosSolidos.clear()
+        objetosSolidos += self.paredes
+        objetosSolidos += self.portas
+        objetosSolidos += self.alavancas
+
         if self.console.teclado.key_pressed("W"):
             b = False
-            for parede in self.paredes:
-                if self.wolf.colideNorte(parede):
-                    b = True
-                    break
-            for objeto in self.objetosInterativos:
+            for objeto in objetosSolidos:
                 if self.wolf.colideNorte(objeto.sprite):
                     b = True
                     break
@@ -132,11 +191,7 @@ class Floor1:
 
         if self.console.teclado.key_pressed("S"):
             b = False
-            for parede in self.paredes:
-                if self.wolf.colideSul(parede):
-                    b = True
-                    break
-            for objeto in self.objetosInterativos:
+            for objeto in objetosSolidos:
                 if self.wolf.colideSul(objeto.sprite):
                     b = True
                     break
@@ -145,11 +200,7 @@ class Floor1:
 
         if self.console.teclado.key_pressed("A"):
             b = False
-            for parede in self.paredes:
-                if self.wolf.colideOeste(parede):
-                    b = True
-                    break
-            for objeto in self.objetosInterativos:
+            for objeto in objetosSolidos:
                 if self.wolf.colideOeste(objeto.sprite):
                     b = True
                     break
@@ -158,11 +209,7 @@ class Floor1:
 
         if self.console.teclado.key_pressed("D"):
             b = False
-            for parede in self.paredes:
-                if self.wolf.colideLeste(parede):
-                    b = True
-                    break
-            for objeto in self.objetosInterativos:
+            for objeto in objetosSolidos:
                 if self.wolf.colideLeste(objeto.sprite):
                     b = True
                     break
@@ -171,8 +218,8 @@ class Floor1:
 
         if self.console.teclado.key_pressed("UP"):
             b = False
-            for parede in self.paredes:
-                if self.gang.colideNorte(parede):
+            for objeto in objetosSolidos:
+                if self.gang.colideNorte(objeto.sprite):
                     b = True
                     break
             if not b:
@@ -180,8 +227,8 @@ class Floor1:
 
         if self.console.teclado.key_pressed("DOWN"):
             b = False
-            for parede in self.paredes:
-                if self.gang.colideSul(parede):
+            for objeto in objetosSolidos:
+                if self.gang.colideSul(objeto.sprite):
                     b = True
                     break
             if not b:
@@ -189,8 +236,8 @@ class Floor1:
 
         if self.console.teclado.key_pressed("LEFT"):
             b = False
-            for parede in self.paredes:
-                if self.gang.colideOeste(parede):
+            for objeto in objetosSolidos:
+                if self.gang.colideOeste(objeto.sprite):
                     b = True
                     break
             if not b:
@@ -198,8 +245,8 @@ class Floor1:
 
         if self.console.teclado.key_pressed("RIGHT"):
             b = False
-            for parede in self.paredes:
-                if self.gang.colideLeste(parede):
+            for objeto in objetosSolidos:
+                if self.gang.colideLeste(objeto.sprite):
                     b = True
                     break
             if not b:
@@ -215,7 +262,7 @@ class Floor1:
 
     def desenhaAuxilio(self):
         for x in self.paredes:
-            x.draw()
+            x.sprite.draw()
         self.wolf.desenhaAuxilio()
         self.gang.desenhaAuxilio()
 
@@ -231,14 +278,20 @@ class Floor1:
 
     def atualizaJanela(self):
         self.fundo.draw()
-        for objeto in self.objetosInterativos:
-            objeto.desenha()
+        for porta in self.portas:
+            porta.desenha()
+        for alavanca in self.alavancas:
+            alavanca.desenha()
         for plat in self.plataformas:
             plat.desenha()
+        for chave in self.chaves:
+            chave.desenha()
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()
+        self.wolf.desenhaInventario(20)
         self.gang.desenha()
+        self.gang.desenhaInventario(420)
         self.console.janela.update()
 
     def checaComandosPausado(self):
@@ -248,8 +301,6 @@ class Floor1:
         if self.apertou("ESC"):
             return False
         if self.apertou("O"):
-            self.objetosInterativos.clear()
-            self.paredes.clear()
             self.rodando = False
             return False
         return True

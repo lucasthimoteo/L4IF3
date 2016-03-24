@@ -7,6 +7,7 @@ class Boneco:
     velocidade = Constantes.velocidadeBoneco
     iniPosX = 400
     iniPosY = 400
+    inventario = None
 
     # Criacao dos colisores
     colisorNorte = None
@@ -19,6 +20,7 @@ class Boneco:
         self.boneco = Sprite(caminho)
         self.boneco.x = self.iniPosX
         self.boneco.y = self.iniPosY
+        self.inventario = []
 
         # Inicializacao dos colisores
         self.colisorNorte = Sprite("Imagens/Personagens/HORIZONTAL.png")
@@ -96,3 +98,13 @@ class Boneco:
     def colidiu(self, objeto):
         return self.colideNorte(objeto) or self.colideSul(objeto) or self.colideOeste(objeto) or self.colideLeste(objeto)
 
+    def pega(self,objeto):
+        self.inventario+=[objeto]
+        objeto.pegado()
+
+    def desenhaInventario(self,iniPosX):
+        spacing = 20
+        for i in range(len(self.inventario)):
+            self.inventario[i].sprite.y = 20
+            self.inventario[i].sprite.x = iniPosX + spacing*i
+            self.inventario[i].sprite.draw()
