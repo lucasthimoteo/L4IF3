@@ -92,3 +92,7 @@ class Boneco:
         if self.colisorLeste.collided(objeto):
             return True
         return False
+
+    def colidiu(self, objeto):
+        return self.colideNorte(objeto) or self.colideSul(objeto) or self.colideOeste(objeto) or self.colideLeste(objeto)
+

@@ -2,6 +2,7 @@ from PPlay.gameimage import *
 import string
 
 from Objetos.Interativos.alavanca import *
+from Objetos.Interativos.plataforma import *
 from Personagens.boneco import *
 from cores import *
 from Objetos.Interativos.porta import *
@@ -26,6 +27,7 @@ class Floor1:
     delta = None
     paredes = []
     objetosInterativos = []
+    plataformas = []
     ult = 0
 
     # Criação dos personagens
@@ -83,6 +85,8 @@ class Floor1:
         self.objetosInterativos += [porta]
         alavanca = Alavanca("O",250,300)
         self.objetosInterativos += [alavanca]
+        plataforma = Plataforma(350,250)
+        self.plataformas += [plataforma]
 
 
     def checaComandos(self):
@@ -100,12 +104,18 @@ class Floor1:
 
         if self.apertou("E"):
             for objeto in self.objetosInterativos:
-                if self.wolf.colideNorte(objeto.sprite) or self.wolf.colideSul(objeto.sprite) or self.wolf.colideOeste(objeto.sprite) or self.wolf.colideLeste(objeto.sprite):
+                if self.wolf.colidiu(objeto.sprite):
                     objeto.ativa()
 
         self.checaMovimento()
 
     def checaMovimento(self):
+
+        for plat in self.plataformas:
+            if self.wolf.colidiu(plat.sprite) or self.gang.colidiu(plat.sprite):
+                plat.ativa()
+            else:
+                plat.desativa()
 
         if self.console.teclado.key_pressed("W"):
             b = False
@@ -223,6 +233,8 @@ class Floor1:
         self.fundo.draw()
         for objeto in self.objetosInterativos:
             objeto.desenha()
+        for plat in self.plataformas:
+            plat.desenha()
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()
@@ -236,6 +248,8 @@ class Floor1:
         if self.apertou("ESC"):
             return False
         if self.apertou("O"):
+            self.objetosInterativos.clear()
+            self.paredes.clear()
             self.rodando = False
             return False
         return True
