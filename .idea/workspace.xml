@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="620c7cf9-002d-4141-8923-aa056d044918" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Constantes/constantes.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/Menu/SETA.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCALD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCALE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCAND.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCANE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCAOD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCAOE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCASD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCASE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Objetos/Interativos/alavanca.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCAD.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Objetos/Interativos/ALAVANCAE.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/FUNDO.jpg" afterPath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/FUNDO.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Janelas/floor1.py" afterPath="$PROJECT_DIR$/Janelas/floor1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Personagens/boneco.py" afterPath="$PROJECT_DIR$/Personagens/boneco.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Objetos/Interativos/porta.py" afterPath="$PROJECT_DIR$/Objetos/Interativos/porta.py" />
     </list>
     <ignored path="L4IF3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,20 +61,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="floor1.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="floor1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Janelas/floor1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="172" selection-start-line="97" selection-start-column="172" selection-end-line="97" selection-end-column="172" />
+            <state vertical-scroll-proportion="0.68929505">
+              <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#1260#1982#0" expanded="false" />
-                <element signature="e#2030#2099#0" expanded="false" />
-                <element signature="e#2741#5688#0" expanded="false" />
-                <element signature="e#5720#6070#0" expanded="false" />
-                <element signature="e#6110#6223#0" expanded="false" />
-                <element signature="e#6261#6497#0" expanded="false" />
-                <element signature="e#6824#7032#0" expanded="false" />
+                <element signature="e#1304#2026#0" expanded="false" />
+                <element signature="e#2873#5820#0" expanded="false" />
+                <element signature="e#5852#6202#0" expanded="false" />
+                <element signature="e#6242#6355#0" expanded="false" />
+                <element signature="e#6393#6629#0" expanded="false" />
+                <element signature="e#6956#7164#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -80,14 +89,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="porta.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="porta.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Objetos/Interativos/porta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alavanca.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Objetos/Interativos/alavanca.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,6 +141,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="lucas" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -143,6 +165,7 @@
         <option value="$PROJECT_DIR$/Constantes/constantes.py" />
         <option value="$PROJECT_DIR$/Personagens/boneco.py" />
         <option value="$PROJECT_DIR$/Objetos/Interativos/porta.py" />
+        <option value="$PROJECT_DIR$/Objetos/Interativos/alavanca.py" />
         <option value="$PROJECT_DIR$/Janelas/floor1.py" />
       </list>
     </option>
@@ -274,20 +297,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Imagens" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="L4IF3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="L4IF3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Constantes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -313,6 +322,22 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="ToolWindowTerminal.ShowToolbar" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="52" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="52" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="52" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="468" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="53" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="52" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="53" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="479" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -503,19 +528,33 @@
       <option name="number" value="Default" />
       <updated>1454525600636</updated>
     </task>
+    <task id="LOCAL-00001" summary="criação da porta">
+      <created>1458845537894</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1458845537894</updated>
+    </task>
+    <task id="LOCAL-00002" summary="criação da porta">
+      <created>1458845589690</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1458845589690</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18824404" sideWeight="0.625" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18824404" sideWeight="0.62530416" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748366" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733223" sideWeight="0.49702382" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39869282" sideWeight="0.5029762" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18824404" sideWeight="0.375" order="2" side_tool="true" content_ui="tabs" x="99" y="98" width="341" height="634" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.49702382" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32843137" sideWeight="0.5029762" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18824404" sideWeight="0.37469587" order="2" side_tool="true" content_ui="tabs" x="99" y="98" width="341" height="634" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.35784313" sideWeight="0.8422619" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16443452" sideWeight="0.4379562" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
@@ -539,6 +578,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="criação da porta" />
+    <option name="LAST_COMMIT_MESSAGE" value="criação da porta" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="3" />
@@ -546,23 +589,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Janelas/floor1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Constantes/constantes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -575,9 +601,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="70" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -632,13 +656,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
+            <element signature="e#1304#2026#0" expanded="false" />
+            <element signature="e#2873#5820#0" expanded="false" />
+            <element signature="e#5852#6202#0" expanded="false" />
+            <element signature="e#6242#6355#0" expanded="false" />
+            <element signature="e#6393#6629#0" expanded="false" />
+            <element signature="e#6956#7164#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -694,13 +717,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
+            <element signature="e#1304#2026#0" expanded="false" />
+            <element signature="e#2873#5820#0" expanded="false" />
+            <element signature="e#5852#6202#0" expanded="false" />
+            <element signature="e#6242#6355#0" expanded="false" />
+            <element signature="e#6393#6629#0" expanded="false" />
+            <element signature="e#6956#7164#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -749,13 +771,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
+            <element signature="e#1304#2026#0" expanded="false" />
+            <element signature="e#2873#5820#0" expanded="false" />
+            <element signature="e#5852#6202#0" expanded="false" />
+            <element signature="e#6242#6355#0" expanded="false" />
+            <element signature="e#6393#6629#0" expanded="false" />
+            <element signature="e#6956#7164#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -796,13 +817,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
+            <element signature="e#1304#2026#0" expanded="false" />
+            <element signature="e#2873#5820#0" expanded="false" />
+            <element signature="e#5852#6202#0" expanded="false" />
+            <element signature="e#6242#6355#0" expanded="false" />
+            <element signature="e#6393#6629#0" expanded="false" />
+            <element signature="e#6956#7164#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -857,13 +877,12 @@
           <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
+            <element signature="e#1304#2026#0" expanded="false" />
+            <element signature="e#2873#5820#0" expanded="false" />
+            <element signature="e#5852#6202#0" expanded="false" />
+            <element signature="e#6242#6355#0" expanded="false" />
+            <element signature="e#6393#6629#0" expanded="false" />
+            <element signature="e#6956#7164#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -914,13 +933,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
+            <element signature="e#1304#2026#0" expanded="false" />
+            <element signature="e#2873#5820#0" expanded="false" />
+            <element signature="e#5852#6202#0" expanded="false" />
+            <element signature="e#6242#6355#0" expanded="false" />
+            <element signature="e#6393#6629#0" expanded="false" />
+            <element signature="e#6956#7164#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1043,29 +1061,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Janelas/floor1.py">
+    <entry file="file://$PROJECT_DIR$/Objetos/Interativos/porta.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="172" selection-start-line="97" selection-start-column="172" selection-end-line="97" selection-end-column="172" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1260#1982#0" expanded="false" />
-            <element signature="e#2030#2099#0" expanded="false" />
-            <element signature="e#2741#5688#0" expanded="false" />
-            <element signature="e#5720#6070#0" expanded="false" />
-            <element signature="e#6110#6223#0" expanded="false" />
-            <element signature="e#6261#6497#0" expanded="false" />
-            <element signature="e#6824#7032#0" expanded="false" />
-          </folding>
+          <caret line="37" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Objetos/Interativos/porta.py">
+    <entry file="file://$PROJECT_DIR$/Objetos/Interativos/alavanca.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Janelas/floor1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68929505">
+          <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#1304#2026#0" expanded="false" />
+            <element signature="e#2873#5820#0" expanded="false" />
+            <element signature="e#5852#6202#0" expanded="false" />
+            <element signature="e#6242#6355#0" expanded="false" />
+            <element signature="e#6393#6629#0" expanded="false" />
+            <element signature="e#6956#7164#0" expanded="false" />
           </folding>
         </state>
       </provider>

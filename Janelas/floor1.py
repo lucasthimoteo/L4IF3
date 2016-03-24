@@ -1,5 +1,7 @@
 from PPlay.gameimage import *
 import string
+
+from Objetos.Interativos.alavanca import *
 from Personagens.boneco import *
 from cores import *
 from Objetos.Interativos.porta import *
@@ -77,8 +79,11 @@ class Floor1:
             self.paredes[i].y = posicoes[i][1]
 
     def criaObjetosInterativos(self):
-        porta = Porta("V",500,500)
+        porta = Porta("H",500,500)
         self.objetosInterativos += [porta]
+        alavanca = Alavanca("O",250,300)
+        self.objetosInterativos += [alavanca]
+
 
     def checaComandos(self):
         if self.ult > 0:

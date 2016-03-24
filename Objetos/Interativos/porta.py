@@ -1,5 +1,5 @@
 from PPlay.sprite import *
-from Constantes.constantes import *
+
 
 
 class Porta:
