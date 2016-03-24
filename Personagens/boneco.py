@@ -1,5 +1,7 @@
 from PPlay.sprite import *
-from Constantes.constantes import *
+
+from Util.constantes import *
+
 
 class Boneco:
     # Criaçao das variaveis
@@ -45,33 +47,33 @@ class Boneco:
         self.colisorOeste.draw()
         self.colisorLeste.draw()
 
-    def andaNorte(self, delta):
-        self.boneco.y -= self.velocidade * delta
-        self.colisorNorte.y -= self.velocidade * delta
-        self.colisorSul.y -= self.velocidade * delta
-        self.colisorOeste.y -= self.velocidade * delta
-        self.colisorLeste.y -= self.velocidade * delta
+    def andaNorte(self):
+        self.boneco.y -= self.velocidade * Constantes.delta
+        self.colisorNorte.y -= self.velocidade * Constantes.delta
+        self.colisorSul.y -= self.velocidade * Constantes.delta
+        self.colisorOeste.y -= self.velocidade * Constantes.delta
+        self.colisorLeste.y -= self.velocidade * Constantes.delta
 
-    def andaSul(self, delta):
-        self.boneco.y += self.velocidade * delta
-        self.colisorNorte.y += self.velocidade * delta
-        self.colisorSul.y += self.velocidade * delta
-        self.colisorOeste.y += self.velocidade * delta
-        self.colisorLeste.y += self.velocidade * delta
+    def andaSul(self):
+        self.boneco.y += self.velocidade * Constantes.delta
+        self.colisorNorte.y += self.velocidade * Constantes.delta
+        self.colisorSul.y += self.velocidade * Constantes.delta
+        self.colisorOeste.y += self.velocidade * Constantes.delta
+        self.colisorLeste.y += self.velocidade * Constantes.delta
 
-    def andaOeste(self, delta):
-        self.boneco.x -= self.velocidade * delta
-        self.colisorNorte.x -= self.velocidade * delta
-        self.colisorSul.x -= self.velocidade * delta
-        self.colisorOeste.x -= self.velocidade * delta
-        self.colisorLeste.x -= self.velocidade * delta
+    def andaOeste(self):
+        self.boneco.x -= self.velocidade * Constantes.delta
+        self.colisorNorte.x -= self.velocidade * Constantes.delta
+        self.colisorSul.x -= self.velocidade * Constantes.delta
+        self.colisorOeste.x -= self.velocidade * Constantes.delta
+        self.colisorLeste.x -= self.velocidade * Constantes.delta
 
-    def andaLeste(self, delta):
-        self.boneco.x += self.velocidade * delta
-        self.colisorNorte.x += self.velocidade * delta
-        self.colisorSul.x += self.velocidade * delta
-        self.colisorOeste.x += self.velocidade * delta
-        self.colisorLeste.x += self.velocidade * delta
+    def andaLeste(self):
+        self.boneco.x += self.velocidade * Constantes.delta
+        self.colisorNorte.x += self.velocidade * Constantes.delta
+        self.colisorSul.x += self.velocidade * Constantes.delta
+        self.colisorOeste.x += self.velocidade * Constantes.delta
+        self.colisorLeste.x += self.velocidade * Constantes.delta
 
     def colideNorte(self, objeto):
         if self.colisorNorte.collided(objeto):

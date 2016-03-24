@@ -1,13 +1,14 @@
-from PPlay.gameimage import *
 import string
+from PPlay.gameimage import *
 
 from Objetos.Comuns.parede import Parede
 from Objetos.Interativos.alavanca import *
 from Objetos.Interativos.chave import Chave
 from Objetos.Interativos.plataforma import *
-from Personagens.boneco import *
-from cores import *
 from Objetos.Interativos.porta import *
+from Personagens.boneco import *
+from Util.cores import *
+from Util.mensagem import Mensagem
 
 
 class Floor1:
@@ -43,8 +44,8 @@ class Floor1:
 
         # Inicialização dos elementos da janela
         self.fundo = GameImage("Imagens/Cenarios/1FLOOR/FUNDO.jpg")
-        self.criaParedes()
 
+        self.criaParedes()
         self.criaObjetosInterativos()
 
         # Inicialização dos personagens
@@ -55,9 +56,19 @@ class Floor1:
 
     def play(self):
         self.rodando = True
+
+        self.atualizaJanela()
+        Mensagem("AHH!!", "GANG", self.console)
+        Mensagem("A porta se fechou atras de nos!", "GANG", self.console)
+        Mensagem("E agora?! O que fazemos?!", "GANG", self.console)
+        Mensagem("Eu nao sei... E a culpa disso é toda sua.", "WOLF", self.console)
+        Mensagem("Eu avisei que nao era uma boa ideia entrar nessa casa.", "WOLF", self.console)
+        Mensagem("De qualquer forma...", "WOLF", self.console)
+        Mensagem("Deve haver um jeito de sair daqui.", "WOLF", self.console)
+        Mensagem("Vamos procurar.", "WOLF", self.console)
+        Mensagem("Sim... Vamos!", "GANG", self.console)
         while self.rodando:
-            self.delta = self.console.janela.delta_time()
-            Constantes.delta = self.delta
+            Constantes.delta = self.console.delta()
 
             self.checaComandos()
 
@@ -88,7 +99,7 @@ class Floor1:
     def criaObjetosInterativos(self):
         self.portas = []
         porta = Porta("H", 500, 500, False, None)
-        portaChave = Porta("V",600,500,True,"123456")
+        portaChave = Porta("V", 600, 500, True, "123456")
         self.portas += [porta]
         self.portas += [portaChave]
         self.alavancas = []
@@ -102,19 +113,18 @@ class Floor1:
         self.chaves += [chave]
 
     def checaComandos(self):
-        if self.ult > 0:
-            self.ult -= 1
+        self.console.resetaUlt()
 
-        if self.apertou("1"):
+        if self.console.apertou("1"):
             if self.dev:
                 self.dev = False
             else:
                 self.dev = True
 
-        if self.apertou("ESC"):
+        if self.console.apertou("ESC"):
             self.pausa()
 
-        if self.apertou("E"):
+        if self.console.apertou("E"):
             for alavanca in self.alavancas:
                 if self.wolf.colidiu(alavanca.sprite):
                     alavanca.ativa()
@@ -126,20 +136,20 @@ class Floor1:
                     else:
                         if not len(self.wolf.inventario) == 0:
                             for objeto in self.wolf.inventario:
-                                if isinstance(objeto,Chave):
+                                if isinstance(objeto, Chave):
                                     if porta.destrava(objeto.codigo):
                                         self.wolf.inventario.remove(objeto)
-                                        print("Porta destravada")
+                                        Mensagem("Oh... A porta abriu.", "WOLF", self.console)
                             if porta.travada:
-                                print("Porta trancada")
+                                Mensagem("A porta esta trancada.", "WOLF", self.console)
                         else:
-                            print("Porta trancada")
+                            Mensagem("A porta esta trancada.", "WOLF", self.console)
 
             for chave in self.chaves:
                 if self.wolf.colidiu(chave.sprite):
                     self.wolf.pega(chave)
 
-        if self.apertou("L"):
+        if self.console.apertou("L"):
             for alavanca in self.alavancas:
                 if self.gang.colidiu(alavanca.sprite):
                     alavanca.ativa()
@@ -151,14 +161,14 @@ class Floor1:
                     else:
                         if not len(self.gang.inventario) == 0:
                             for objeto in self.gang.inventario:
-                                if isinstance(objeto,Chave):
+                                if isinstance(objeto, Chave):
                                     if porta.destrava(objeto.codigo):
                                         self.gang.inventario.remove(objeto)
-                                        print("Porta destravada")
+                                        Mensagem("Ah... A porta se abriu!.", "GANG", self.console)
                             if porta.travada:
-                                print("Porta trancada")
+                                Mensagem("Droga... A porta esta trancada.", "GANG", self.console)
                         else:
-                            print("Porta trancada")
+                            Mensagem("Droga... A porta esta trancada.", "GANG", self.console)
 
             for chave in self.chaves:
                 if self.gang.colidiu(chave.sprite):
@@ -180,77 +190,77 @@ class Floor1:
         objetosSolidos += self.portas
         objetosSolidos += self.alavancas
 
-        if self.console.teclado.key_pressed("W"):
+        if self.console.pressionou("W"):
             b = False
             for objeto in objetosSolidos:
                 if self.wolf.colideNorte(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.wolf.andaNorte(self.delta)
+                self.wolf.andaNorte()
 
-        if self.console.teclado.key_pressed("S"):
+        if self.console.pressionou("S"):
             b = False
             for objeto in objetosSolidos:
                 if self.wolf.colideSul(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.wolf.andaSul(self.delta)
+                self.wolf.andaSul()
 
-        if self.console.teclado.key_pressed("A"):
+        if self.console.pressionou("A"):
             b = False
             for objeto in objetosSolidos:
                 if self.wolf.colideOeste(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.wolf.andaOeste(self.delta)
+                self.wolf.andaOeste()
 
-        if self.console.teclado.key_pressed("D"):
+        if self.console.pressionou("D"):
             b = False
             for objeto in objetosSolidos:
                 if self.wolf.colideLeste(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.wolf.andaLeste(self.delta)
+                self.wolf.andaLeste()
 
-        if self.console.teclado.key_pressed("UP"):
+        if self.console.pressionou("UP"):
             b = False
             for objeto in objetosSolidos:
                 if self.gang.colideNorte(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.gang.andaNorte(self.delta)
+                self.gang.andaNorte()
 
-        if self.console.teclado.key_pressed("DOWN"):
+        if self.console.pressionou("DOWN"):
             b = False
             for objeto in objetosSolidos:
                 if self.gang.colideSul(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.gang.andaSul(self.delta)
+                self.gang.andaSul()
 
-        if self.console.teclado.key_pressed("LEFT"):
+        if self.console.pressionou("LEFT"):
             b = False
             for objeto in objetosSolidos:
                 if self.gang.colideOeste(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.gang.andaOeste(self.delta)
+                self.gang.andaOeste()
 
-        if self.console.teclado.key_pressed("RIGHT"):
+        if self.console.pressionou("RIGHT"):
             b = False
             for objeto in objetosSolidos:
                 if self.gang.colideLeste(objeto.sprite):
                     b = True
                     break
             if not b:
-                self.gang.andaLeste(self.delta)
+                self.gang.andaLeste()
 
     def pausa(self):
 
@@ -258,23 +268,13 @@ class Floor1:
             self.console.janela.draw_text("Aperte O para sair e ESC para cancelar", self.console.janela.width * 0.2,
                                           self.console.janela.height / 2, 36,
                                           (0, 250, 250), "Arial", False, False)
-            self.console.janela.update()
+            self.console.atualizaJanela()
 
     def desenhaAuxilio(self):
         for x in self.paredes:
             x.sprite.draw()
         self.wolf.desenhaAuxilio()
         self.gang.desenhaAuxilio()
-
-    def apertou(self, com):
-        if self.console.teclado.key_pressed(com):
-            if self.ult == 0:
-                self.ult = 2
-                return True
-            if self.ult > 0:
-                self.ult = 2
-                return False
-        return False
 
     def atualizaJanela(self):
         self.fundo.draw()
@@ -289,18 +289,17 @@ class Floor1:
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()
-        self.wolf.desenhaInventario(20)
+        self.wolf.desenhaInventario(Constantes.larguraJanela * 0.1)
         self.gang.desenha()
-        self.gang.desenhaInventario(420)
-        self.console.janela.update()
+        self.gang.desenhaInventario(Constantes.larguraJanela * 0.8)
+        self.console.atualizaJanela()
 
     def checaComandosPausado(self):
-        if self.ult > 0:
-            self.ult -= 1
+        self.console.resetaUlt()
 
-        if self.apertou("ESC"):
+        if self.console.apertou("ESC"):
             return False
-        if self.apertou("O"):
+        if self.console.apertou("O"):
             self.rodando = False
             return False
         return True

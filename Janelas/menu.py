@@ -1,5 +1,5 @@
 from Janelas.floor1 import *
-from cores import *
+from Util.cores import *
 
 
 class Menu:
@@ -57,7 +57,7 @@ class Menu:
         for opcao in self.opcoes:
             opcao.draw()
         self.select.draw()
-        self.console.janela.update()
+        self.console.atualizaJanela()
 
     def apertou(self, com):
 

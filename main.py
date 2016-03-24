@@ -1,7 +1,8 @@
-from console import *
 from Janelas.menu import *
+from Util.console import Console
+from Util.constantes import Constantes
 
-console = Console(800,600)
+console = Console(Constantes.larguraJanela,Constantes.alturaJanela)
 
 Menu(console)
 
