@@ -7,8 +7,8 @@ class Boneco:
     # Criaçao das variaveis
     boneco = None
     velocidade = Constantes.velocidadeBoneco
-    iniPosX = 400
-    iniPosY = 400
+    iniPosX = 300
+    iniPosY = 500
     inventario = None
 
     # Criacao dos colisores

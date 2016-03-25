@@ -4,6 +4,7 @@ from PPlay.gameimage import *
 from Objetos.Comuns.parede import Parede
 from Objetos.Interativos.alavanca import *
 from Objetos.Interativos.chave import Chave
+from Objetos.Interativos.nota import Nota
 from Objetos.Interativos.plataforma import *
 from Objetos.Interativos.porta import *
 from Personagens.boneco import *
@@ -33,6 +34,7 @@ class Floor1:
     alavancas = None
     plataformas = None
     chaves = None
+    notas = None
     ult = 0
 
     # Criação dos personagens
@@ -58,15 +60,15 @@ class Floor1:
         self.rodando = True
 
         self.atualizaJanela()
-        Mensagem("AHH!!", "GANG", self.console)
-        Mensagem("A porta se fechou atras de nos!", "GANG", self.console)
-        Mensagem("E agora?! O que fazemos?!", "GANG", self.console)
-        Mensagem("Eu nao sei... E a culpa disso é toda sua.", "WOLF", self.console)
-        Mensagem("Eu avisei que nao era uma boa ideia entrar nessa casa.", "WOLF", self.console)
-        Mensagem("De qualquer forma...", "WOLF", self.console)
-        Mensagem("Deve haver um jeito de sair daqui.", "WOLF", self.console)
-        Mensagem("Vamos procurar.", "WOLF", self.console)
-        Mensagem("Sim... Vamos!", "GANG", self.console)
+        # Mensagem("AHH!!", "GANG", self.console)
+        # Mensagem("A porta se fechou atras de nos!", "GANG", self.console)
+        # Mensagem("E agora?! O que fazemos?!", "GANG", self.console)
+        # Mensagem("Eu nao sei... E a culpa disso é toda sua.", "WOLF", self.console)
+        # Mensagem("Eu avisei que nao era uma boa ideia entrar nessa casa.", "WOLF", self.console)
+        # Mensagem("De qualquer forma...", "WOLF", self.console)
+        # Mensagem("Deve haver um jeito de sair daqui.", "WOLF", self.console)
+        # Mensagem("Vamos procurar.", "WOLF", self.console)
+        # Mensagem("Sim... Vamos!", "GANG", self.console)
         while self.rodando:
             Constantes.delta = self.console.delta()
 
@@ -75,42 +77,64 @@ class Floor1:
             self.atualizaJanela()
 
     def criaParedes(self):
-        letras = list(string.ascii_uppercase[:14])
+        letras = list(string.ascii_uppercase[:23])
         self.paredes = []
         for x in letras:
-            self.paredes += [Parede("Imagens/Cenarios/1FLOOR/" + x + ".png")]
-        posicoes = [[50, 80],
-                    [50, 90],
-                    [310, 90],
-                    [50, 570],
-                    [310, 520],
-                    [480, 520],
-                    [60, 370],
-                    [240, 370],
-                    [320, 260],
-                    [460, 260],
-                    [480, 260],
-                    [490, 360],
-                    [690, 360],
-                    [740, 90]]
+            self.paredes += [Parede("Imagens\Objetos\Paredes\FLOOR1/" + x + ".png")]
+        posicoes = [[50, 50],
+                    [50, 50],
+                    [50, 200],
+                    [50, 300],
+                    [50, 500],
+                    [125, 200],
+                    [150, 200],
+                    [225, 200],
+                    [250, 200],
+                    [250, 500],
+                    [250, 550],
+                    [325, 200],
+                    [390, 200],
+                    [400, 200],
+                    [400, 275],
+                    [400, 300],
+                    [400, 500],
+                    [400, 500],
+                    [350, 550],
+                    [500, 200],
+                    [750, 50],
+                    [650, 300],
+                    [650, 300]]
         for i in range(len(self.paredes)):
             self.paredes[i].setXY(posicoes[i][0], posicoes[i][1])
 
     def criaObjetosInterativos(self):
+
         self.portas = []
-        porta = Porta("H", 500, 500, False, None)
-        portaChave = Porta("V", 600, 500, True, "123456")
-        self.portas += [porta]
-        self.portas += [portaChave]
+        difPorta = 5
+        portaSalaDeVisita = Porta("V", 250-difPorta, 450, False, None)
+        portaSalaDeEstar = Porta("V", 400-difPorta, 450, False, None)
+        portaBanheiro = Porta("V", 400-difPorta, 225, False, None)
+        portaLavanderia = Porta("H", 75, 200-difPorta, False, None)
+        portaArmazem = Porta("H", 175, 200-difPorta, False, None)
+        portaCozinha = Porta("H", 340, 200-difPorta, False, None)
+        portaSalaDeJantar = Porta("H", 600, 300-difPorta, False, None)
+        self.portas += [portaSalaDeVisita,portaSalaDeEstar,portaBanheiro,portaLavanderia,portaArmazem,portaCozinha,portaSalaDeJantar]
+
         self.alavancas = []
-        alavanca = Alavanca("O", 250, 300)
+        alavanca = Alavanca("L", 500-20, 225)
         self.alavancas += [alavanca]
+
         self.plataformas = []
-        plataforma = Plataforma(350, 250)
+        plataforma = Plataforma(450, 350)
         self.plataformas += [plataforma]
+
         self.chaves = []
-        chave = Chave(200, 300, "123456")
+        chave = Chave(100, 350, "123456")
         self.chaves += [chave]
+
+        self.notas = []
+        notaLivro = Nota(400,100,"LIVRO",self.console)
+        self.notas+=[notaLivro]
 
     def checaComandos(self):
         self.console.resetaUlt()
@@ -128,6 +152,10 @@ class Floor1:
             for alavanca in self.alavancas:
                 if self.wolf.colidiu(alavanca.sprite):
                     alavanca.ativa()
+
+            for nota in self.notas:
+                if self.wolf.colidiu(nota.sprite):
+                    nota.exibe()
 
             for porta in self.portas:
                 if self.wolf.colidiu(porta.sprite):
@@ -286,6 +314,8 @@ class Floor1:
             plat.desenha()
         for chave in self.chaves:
             chave.desenha()
+        for nota in self.notas:
+            nota.desenha()
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()

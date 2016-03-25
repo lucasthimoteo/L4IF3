@@ -2,19 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="620c7cf9-002d-4141-8923-aa056d044918" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Cenarios/Mensagem/FUNDOMENSAGEM.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Cenarios/Mensagem/GANG.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Cenarios/Mensagem/WOLF.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Util/console.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Util/mensagem.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/console.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/LIVROG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/LIVRONOTA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/A.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/B.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/C.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/D.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/E.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/F.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/G.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/H.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/I.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/J.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/K.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/L.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/M.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/N.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/O.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/P.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/Q.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/R.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/S.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/T.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/U.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/V.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Imagens/Objetos/Paredes/FLOOR1/W.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Objetos/Interativos/nota.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/B.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/BACKGROUND.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/C.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/E.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/F.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/FLORCOLLIDE.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/G.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/H.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/I.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/J.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/K.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/L.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/M.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/N.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/POSITIONS.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/FUNDO.jpg" afterPath="$PROJECT_DIR$/Imagens/Cenarios/1FLOOR/FUNDO.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Imagens/Objetos/Interativos/LIVRO.png" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/LIVRO.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Imagens/Objetos/Interativos/PLATAFORMAF.png" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/PLATAFORMAF.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Imagens/Objetos/Interativos/PLATAFORMAT.png" afterPath="$PROJECT_DIR$/Imagens/Objetos/Interativos/PLATAFORMAT.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Janelas/floor1.py" afterPath="$PROJECT_DIR$/Janelas/floor1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Janelas/menu.py" afterPath="$PROJECT_DIR$/Janelas/menu.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Personagens/boneco.py" afterPath="$PROJECT_DIR$/Personagens/boneco.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Constantes/constantes.py" afterPath="$PROJECT_DIR$/Util/constantes.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cores.py" afterPath="$PROJECT_DIR$/Util/cores.py" />
     </list>
     <ignored path="L4IF3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,7 +87,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-              <folding />
+              <folding>
+                <marker date="1458856341872" expanded="true" signature="1382:1533" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,10 +97,32 @@
       <file leaf-file-name="floor1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Janelas/floor1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4673629">
-              <caret line="170" column="47" selection-start-line="170" selection-start-column="47" selection-end-line="170" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.24281985">
+              <caret line="123" column="41" selection-start-line="123" selection-start-column="41" selection-end-line="123" selection-end-column="41" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chave.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Objetos/Interativos/chave.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nota.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Objetos/Interativos/nota.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/Personagens/boneco.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -81,7 +142,7 @@
         <entry file="file://$PROJECT_DIR$/Util/mensagem.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="84" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -129,8 +190,9 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Janelas/menu.py" />
         <option value="$PROJECT_DIR$/Util/console.py" />
-        <option value="$PROJECT_DIR$/Personagens/boneco.py" />
         <option value="$PROJECT_DIR$/Util/mensagem.py" />
+        <option value="$PROJECT_DIR$/Objetos/Interativos/nota.py" />
+        <option value="$PROJECT_DIR$/Personagens/boneco.py" />
         <option value="$PROJECT_DIR$/Janelas/floor1.py" />
       </list>
     </option>
@@ -312,7 +374,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Cenarios" />
+              <option name="myItemId" value="Objetos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Paredes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FLOOR1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -330,11 +400,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Cenarios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mensagem" />
+              <option name="myItemId" value="Objetos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -596,7 +662,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458854853644</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="criação das mensagens de jogo">
+      <created>1458859850442</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1458859850442</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -639,7 +711,8 @@
     <MESSAGE value="criação da alavanca" />
     <MESSAGE value="criação da plataforma" />
     <MESSAGE value="criação da chaves e portas destravadas a chaves" />
-    <option name="LAST_COMMIT_MESSAGE" value="criação da chaves e portas destravadas a chaves" />
+    <MESSAGE value="criação das mensagens de jogo" />
+    <option name="LAST_COMMIT_MESSAGE" value="criação das mensagens de jogo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -648,14 +721,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Janelas/menu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -987,14 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Objetos/Interativos/chave.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Objetos/Interativos/porta.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1031,7 +1088,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-          <folding />
+          <folding>
+            <marker date="1458856341872" expanded="true" signature="1382:1533" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,10 +1102,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Personagens/boneco.py">
+    <entry file="file://$PROJECT_DIR$/Objetos/Interativos/chave.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+          <caret line="9" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1054,17 +1113,35 @@
     <entry file="file://$PROJECT_DIR$/Util/mensagem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="84" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Objetos/Interativos/nota.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Personagens/boneco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Janelas/floor1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4673629">
-          <caret line="170" column="47" selection-start-line="170" selection-start-column="47" selection-end-line="170" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.24281985">
+          <caret line="123" column="41" selection-start-line="123" selection-start-column="41" selection-end-line="123" selection-end-column="41" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
