@@ -66,62 +66,53 @@ class Floor2:
             self.atualizaJanela()
 
     def criaParedes(self):
-        letras = list(string.ascii_uppercase[:23])
+        letras = list(string.ascii_uppercase[:16])
         self.paredes = []
         for x in letras:
-            self.paredes += [Parede("Imagens\Objetos\Paredes\FLOOR1/" + x + ".png")]
+            self.paredes += [Parede("Imagens\Objetos\Paredes\FLOOR2/" + x + ".png")]
         posicoes = [[50, 50],
                     [50, 50],
-                    [50, 200],
-                    [50, 300],
                     [50, 500],
-                    [125, 200],
-                    [150, 200],
-                    [225, 390],
-                    [250, 200],
-                    [250, 500],
+                    [250, 50],
+                    [250, 150],
+                    [250, 400],
                     [250, 550],
                     [325, 200],
-                    [390, 200],
-                    [400, 200],
-                    [400, 275],
+                    [400, 50],
+                    [400, 250],
                     [400, 300],
+                    [400, 460],
                     [400, 500],
-                    [400, 500],
-                    [350, 550],
-                    [500, 200],
-                    [750, 50],
                     [650, 300],
+                    [750, 50],
                     [650, 300]]
+
         for i in range(len(self.paredes)):
             self.paredes[i].setXY(posicoes[i][0], posicoes[i][1])
 
     def criaObjetosInterativos(self):
 
         self.portas = []
-        portaSalaDeVisita = Porta("V", 250, 450, False, None)
-        portaSalaDeEstar = Porta("V", 400, 450, False, None)
-        portaBanheiro = Porta("V", 400, 225, False, None)
-        portaLavanderia = Porta("H", 75, 200, False, None)
-        portaArmazem = Porta("H", 175, 200, False, None)
-        portaCozinha = Porta("H", 340, 200, False, None)
-        portaSalaDeJantar = Porta("H", 600, 300, False, None)
-        self.portas += [portaSalaDeVisita, portaSalaDeEstar, portaBanheiro, portaLavanderia, portaArmazem, portaCozinha,
-                        portaSalaDeJantar]
+        portaEstudio = Porta("V", 250, 100, False, None)
+        portaQuarto = Porta("V", 400, 200, False, None)
+        portaBanheiro = Porta("H", 600, 300, False, None)
+        portaSecreta = Porta("V", 400, 410, False, None)
+
+        self.portas += [portaEstudio, portaQuarto, portaBanheiro, portaSecreta]
 
         self.moveis = []
-        movelEscondido = Movel(450, 350, 500, 350, "MOVEL", self.console)
+        movelEscondido = Movel(410, 410, 410, 450, "MOVEL", self.console)
         self.moveis += [movelEscondido]
 
         self.notas = []
-        notaLivro = Nota(400, 100, "LIVRO", self.console)
+        notaLivro = Nota(300, 420, "LIVRO", self.console)
         self.notas += [notaLivro]
 
         self.escada = Sprite("Imagens\Objetos\Interativos\ESCADA.png")
         self.escada.x = 260
-        self.escada.y = 370
+        self.escada.y = 380
 
-        self.cofre = Teclado(650,150,self.console)
+        self.cofre = Teclado(200,450,self.console)
 
     def checaComandos(self):
         self.console.resetaUlt()
@@ -227,7 +218,7 @@ class Floor2:
 
         if self.console.apertou("E"):
             movel = self.moveis[0]
-            if self.wolf.colideLeste(movel.sprite):
+            if self.wolf.colideSul(movel.sprite):
                 movel.empurra()
 
             nota = self.notas[0]
