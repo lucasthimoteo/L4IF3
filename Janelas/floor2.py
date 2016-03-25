@@ -1,19 +1,15 @@
-import string
-from PPlay.gameimage import *
-
-from Janelas.floor2 import Floor2
+from Janelas.floor1 import *
 from Objetos.Comuns.parede import Parede
-from Objetos.Interativos.alavanca import *
 from Objetos.Interativos.chave import Chave
+from Objetos.Interativos.movel import Movel
 from Objetos.Interativos.nota import Nota
-from Objetos.Interativos.plataforma import *
 from Objetos.Interativos.porta import *
 from Personagens.boneco import *
 from Util.cores import *
 from Util.mensagem import Mensagem
 
 
-class Floor1:
+class Floor2:
     console = None
 
     # Estados
@@ -33,20 +29,17 @@ class Floor1:
     paredes = None
     portas = None
     alavancas = None
-    alavancaPortaCozinha = None
     plataformas = None
     chaves = None
     notas = None
-    escada = None
+    moveis = None
     ult = 0
 
     # Criação dos personagens
     wolf = None
     gang = None
 
-    floor2=None
-
-    def __init__(self, console):
+    def __init__(self, console, wolf, gang):
         self.console = console
 
         # Inicialização dos elementos da janela
@@ -56,34 +49,17 @@ class Floor1:
         self.criaObjetosInterativos()
 
         # Inicialização dos personagens
-        self.wolf = Boneco("Imagens/Personagens/WOLF.png")
-        self.gang = Boneco("Imagens/Personagens/GANG.png")
-
-        self.floor2 = Floor2(console,self.wolf,self.gang)
-
-        # Mensagem("AHH!!", "GANG", self.console)
-        # Mensagem("A porta se fechou atras de nos!", "GANG", self.console)
-        # Mensagem("E agora?! O que fazemos?!", "GANG", self.console)
-        # Mensagem("Eu nao sei... E a culpa disso é toda sua.", "WOLF", self.console)
-        # Mensagem("Eu avisei que nao era uma boa ideia entrar nessa casa.", "WOLF", self.console)
-        # Mensagem("De qualquer forma...", "WOLF", self.console)
-        # Mensagem("Deve haver um jeito de sair daqui.", "WOLF", self.console)
-        # Mensagem("Vamos procurar.", "WOLF", self.console)
-        # Mensagem("Sim... Vamos!", "GANG", self.console)
-
-        self.play()
-
+        self.wolf = wolf
+        self.gang = gang
 
     def play(self):
         self.rodando = True
-
         while self.rodando:
             Constantes.delta = self.console.delta()
 
             self.checaComandos()
 
             self.atualizaJanela()
-
 
     def criaParedes(self):
         letras = list(string.ascii_uppercase[:23])
@@ -97,7 +73,7 @@ class Floor1:
                     [50, 500],
                     [125, 200],
                     [150, 200],
-                    [225, 200],
+                    [225, 390],
                     [250, 200],
                     [250, 500],
                     [250, 550],
@@ -116,27 +92,30 @@ class Floor1:
         for i in range(len(self.paredes)):
             self.paredes[i].setXY(posicoes[i][0], posicoes[i][1])
 
-
     def criaObjetosInterativos(self):
+
         self.portas = []
         portaSalaDeVisita = Porta("V", 250, 450, False, None)
         portaSalaDeEstar = Porta("V", 400, 450, False, None)
         portaBanheiro = Porta("V", 400, 225, False, None)
-        portaLavanderia = Porta("H", 75, 200, True, "chaveDourada")
-        portaArmazem = Porta("H", 175, 200, True, "alavancaLavanderia")
+        portaLavanderia = Porta("H", 75, 200, False, None)
+        portaArmazem = Porta("H", 175, 200, False, None)
         portaCozinha = Porta("H", 340, 200, False, None)
         portaSalaDeJantar = Porta("H", 600, 300, False, None)
         self.portas += [portaSalaDeVisita, portaSalaDeEstar, portaBanheiro, portaLavanderia, portaArmazem, portaCozinha,
                         portaSalaDeJantar]
 
-        self.alavancas = []
-        alavanca = Alavanca("L", 150 - 20, 250)
-        self.alavancas += [alavanca]
+        self.moveis = []
+        movelEscondido = Movel(450, 350, 500, 350, "MOVEL", self.console)
+        self.moveis += [movelEscondido]
+
+        self.notas = []
+        notaLivro = Nota(400, 100, "LIVRO", self.console)
+        self.notas += [notaLivro]
 
         self.escada = Sprite("Imagens\Objetos\Interativos\ESCADA.png")
         self.escada.x = 260
-        self.escada.y = 210
-
+        self.escada.y = 350
 
     def checaComandos(self):
         self.console.resetaUlt()
@@ -154,13 +133,13 @@ class Floor1:
 
         self.checaMovimento()
 
-
     def checaMovimento(self):
+
         objetosSolidos = []
         objetosSolidos.clear()
         objetosSolidos += self.paredes
         objetosSolidos += self.portas
-        objetosSolidos += self.alavancas
+        objetosSolidos += self.moveis
 
         if self.console.pressionou("W"):
             b = False
@@ -234,19 +213,15 @@ class Floor1:
             if not b:
                 self.gang.andaLeste()
 
-
     def checaInteratividade(self):
+
         if self.wolf.colidiu(self.escada) and self.gang.colidiu(self.escada):
-            self.floor2.play()
+            self.rodando = False
 
         if self.console.apertou("E"):
-
-            alavanca = self.alavancas[0]
-            if self.wolf.colidiu(alavanca.sprite):
-                alavanca.ativa()
-                if self.portas[4].travada:
-                    self.portas[4].destrava("alavancaLavanderia")
-                    Mensagem("Parece que algo foi destravado", "WOLF", self.console)
+            movel = self.moveis[0]
+            if self.wolf.colideLeste(movel.sprite):
+                movel.empurra()
 
             for porta in self.portas:
                 if self.wolf.colidiu(porta.sprite):
@@ -265,13 +240,9 @@ class Floor1:
                             Mensagem("A porta esta trancada.", "WOLF", self.console)
 
         if self.console.apertou("L"):
-
-            alavanca = self.alavancas[0]
-            if self.gang.colidiu(alavanca.sprite):
-                alavanca.ativa()
-                if self.portas[4].travada:
-                    self.portas[4].destrava("alavancaLavanderia")
-                    Mensagem("Parece que algo foi destravado", "GANG", self.console)
+            movel = self.moveis[0]
+            if self.gang.colideLeste(movel.sprite):
+                movel.empurra()
 
             for porta in self.portas:
                 if self.gang.colidiu(porta.sprite):
@@ -289,29 +260,27 @@ class Floor1:
                         else:
                             Mensagem("A porta esta trancada.", "GANG", self.console)
 
-
     def pausa(self):
+
         while self.checaComandosPausado():
             self.console.janela.draw_text("Aperte O para sair e ESC para cancelar", self.console.janela.width * 0.2,
                                           self.console.janela.height / 2, 36,
                                           (0, 250, 250), "Arial", False, False)
             self.console.atualizaJanela()
 
-
     def desenhaAuxilio(self):
         for x in self.paredes:
             x.sprite.draw()
         self.wolf.desenhaAuxilio()
         self.gang.desenhaAuxilio()
-
+        self.escada.draw()
 
     def atualizaJanela(self):
         self.fundo.draw()
         for porta in self.portas:
             porta.desenha()
-        for alavanca in self.alavancas:
-            alavanca.desenha()
-        self.escada.draw()
+        for movel in self.moveis:
+            movel.desenha()
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()
@@ -319,7 +288,6 @@ class Floor1:
         self.gang.desenha()
         self.gang.desenhaInventario(Constantes.larguraJanela * 0.8)
         self.console.atualizaJanela()
-
 
     def checaComandosPausado(self):
         self.console.resetaUlt()
