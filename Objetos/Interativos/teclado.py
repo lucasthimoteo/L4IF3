@@ -39,12 +39,12 @@ class Teclado:
 
         self.selecionado = 0
 
-    def destrava(self, codigo):
+    def destrava(self, codigo, personagem):
         self.codigo = codigo
         self.novoCodigo = ""
         self.rodando = True
         while self.rodando:
-            self.checaComandos()
+            self.checaComandos(personagem)
             self.novoCodigo = ""
             for i in self.insert:
                 self.novoCodigo += str(i)
@@ -67,20 +67,20 @@ class Teclado:
                 self.travado = False
                 self.rodando = False
 
-    def checaComandos(self):
+    def checaComandos(self,personagem):
         self.console.resetaUlt()
 
-        if self.console.apertou("ESC"):
+        if self.console.apertou(personagem.continuar):
             self.travado = True
             self.rodando = False
-        if self.console.apertou("UP") and self.insert[self.selecionado] < 9:
+        if self.console.apertou(personagem.up) and self.insert[self.selecionado] < 9:
             self.insert[self.selecionado] += 1
-        if self.console.apertou("DOWN") and self.insert[self.selecionado] > 0:
+        if self.console.apertou(personagem.down) and self.insert[self.selecionado] > 0:
             self.insert[self.selecionado] -= 1
-        if self.console.apertou("LEFT") and self.selecionado > 0:
+        if self.console.apertou(personagem.left) and self.selecionado > 0:
             self.selecionado -= 1
             self.selecionador.x -= 100
-        if self.console.apertou("RIGHT") and self.selecionado < 3:
+        if self.console.apertou(personagem.right) and self.selecionado < 3:
             self.selecionado += 1
             self.selecionador.x += 100
 

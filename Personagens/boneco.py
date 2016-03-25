@@ -5,7 +5,17 @@ from Util.constantes import *
 
 class Boneco:
     # Criaçao das variaveis
-    boneco = None
+    sprite = None
+    nome = None
+
+    up = None
+    down = None
+    left = None
+    right = None
+    interact = None
+    continuar = None
+    back = None
+
     velocidade = Constantes.velocidadeBoneco
     iniPosX = 300
     iniPosY = 500
@@ -17,29 +27,47 @@ class Boneco:
     colisorOeste = None
     colisorLeste = None
 
-    def __init__(self, caminho):
+    def __init__(self, personagem, controle):
         # Inicializacao das variaveis
-        self.boneco = Sprite(caminho)
-        self.boneco.x = self.iniPosX
-        self.boneco.y = self.iniPosY
+        self.sprite = Sprite("Imagens\Personagens/" + personagem + ".png")
+        self.nome = personagem
+        self.sprite.x = self.iniPosX
+        self.sprite.y = self.iniPosY
         self.inventario = []
+
+        if controle == 1:
+            self.up = "W"
+            self.down = "S"
+            self.left = "A"
+            self.right = "D"
+            self.interact = "E"
+            self.continuar = "SPACE"
+            self.back = "ESC"
+        if controle == 2:
+            self.up = "8"
+            self.down = "5"
+            self.left = "4"
+            self.right = "6"
+            self.interact = "7"
+            self.continuar = "0"
+            self.back = "ESC"
 
         # Inicializacao dos colisores
         self.colisorNorte = Sprite("Imagens/Personagens/HORIZONTAL.png")
-        self.colisorNorte.x = self.boneco.x + 1
-        self.colisorNorte.y = self.boneco.y - 1
+        self.colisorNorte.x = self.sprite.x + 1
+        self.colisorNorte.y = self.sprite.y - 1
         self.colisorSul = Sprite("Imagens/Personagens/HORIZONTAL.png")
-        self.colisorSul.x = self.boneco.x + 1
-        self.colisorSul.y = self.boneco.y + self.boneco.height + 1
+        self.colisorSul.x = self.sprite.x + 1
+        self.colisorSul.y = self.sprite.y + self.sprite.height + 1
         self.colisorOeste = Sprite("Imagens/Personagens/VERTICAL.png")
-        self.colisorOeste.x = self.boneco.x - 1
-        self.colisorOeste.y = self.boneco.y + 1
+        self.colisorOeste.x = self.sprite.x - 1
+        self.colisorOeste.y = self.sprite.y + 1
         self.colisorLeste = Sprite("Imagens/Personagens/VERTICAL.png")
-        self.colisorLeste.x = self.boneco.x + self.boneco.width + 1
-        self.colisorLeste.y = self.boneco.y + 1
+        self.colisorLeste.x = self.sprite.x + self.sprite.width + 1
+        self.colisorLeste.y = self.sprite.y + 1
 
     def desenha(self):
-        self.boneco.draw()
+        self.sprite.draw()
 
     def desenhaAuxilio(self):
         self.colisorNorte.draw()
@@ -48,28 +76,28 @@ class Boneco:
         self.colisorLeste.draw()
 
     def andaNorte(self):
-        self.boneco.y -= self.velocidade * Constantes.delta
+        self.sprite.y -= self.velocidade * Constantes.delta
         self.colisorNorte.y -= self.velocidade * Constantes.delta
         self.colisorSul.y -= self.velocidade * Constantes.delta
         self.colisorOeste.y -= self.velocidade * Constantes.delta
         self.colisorLeste.y -= self.velocidade * Constantes.delta
 
     def andaSul(self):
-        self.boneco.y += self.velocidade * Constantes.delta
+        self.sprite.y += self.velocidade * Constantes.delta
         self.colisorNorte.y += self.velocidade * Constantes.delta
         self.colisorSul.y += self.velocidade * Constantes.delta
         self.colisorOeste.y += self.velocidade * Constantes.delta
         self.colisorLeste.y += self.velocidade * Constantes.delta
 
     def andaOeste(self):
-        self.boneco.x -= self.velocidade * Constantes.delta
+        self.sprite.x -= self.velocidade * Constantes.delta
         self.colisorNorte.x -= self.velocidade * Constantes.delta
         self.colisorSul.x -= self.velocidade * Constantes.delta
         self.colisorOeste.x -= self.velocidade * Constantes.delta
         self.colisorLeste.x -= self.velocidade * Constantes.delta
 
     def andaLeste(self):
-        self.boneco.x += self.velocidade * Constantes.delta
+        self.sprite.x += self.velocidade * Constantes.delta
         self.colisorNorte.x += self.velocidade * Constantes.delta
         self.colisorSul.x += self.velocidade * Constantes.delta
         self.colisorOeste.x += self.velocidade * Constantes.delta
