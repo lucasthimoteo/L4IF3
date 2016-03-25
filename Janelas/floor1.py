@@ -301,6 +301,7 @@ class Floor1:
     def desenhaAuxilio(self):
         for x in self.paredes:
             x.sprite.draw()
+        self.escada.draw()
         self.wolf.desenhaAuxilio()
         self.gang.desenhaAuxilio()
 
@@ -311,7 +312,6 @@ class Floor1:
             porta.desenha()
         for alavanca in self.alavancas:
             alavanca.desenha()
-        self.escada.draw()
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()

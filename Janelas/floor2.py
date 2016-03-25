@@ -4,6 +4,7 @@ from Objetos.Interativos.chave import Chave
 from Objetos.Interativos.movel import Movel
 from Objetos.Interativos.nota import Nota
 from Objetos.Interativos.porta import *
+from Objetos.Interativos.teclado import Teclado
 from Personagens.boneco import *
 from Util.cores import *
 from Util.mensagem import Mensagem
@@ -33,6 +34,7 @@ class Floor2:
     chaves = None
     notas = None
     moveis = None
+    cofre = None
     ult = 0
 
     # Criação dos personagens
@@ -58,6 +60,8 @@ class Floor2:
             Constantes.delta = self.console.delta()
 
             self.checaComandos()
+
+            self.notas[0].atualiza()
 
             self.atualizaJanela()
 
@@ -115,7 +119,9 @@ class Floor2:
 
         self.escada = Sprite("Imagens\Objetos\Interativos\ESCADA.png")
         self.escada.x = 260
-        self.escada.y = 350
+        self.escada.y = 370
+
+        self.cofre = Teclado(650,150,self.console)
 
     def checaComandos(self):
         self.console.resetaUlt()
@@ -140,6 +146,7 @@ class Floor2:
         objetosSolidos += self.paredes
         objetosSolidos += self.portas
         objetosSolidos += self.moveis
+        objetosSolidos += [self.cofre]
 
         if self.console.pressionou("W"):
             b = False
@@ -223,6 +230,15 @@ class Floor2:
             if self.wolf.colideLeste(movel.sprite):
                 movel.empurra()
 
+            nota = self.notas[0]
+            if self.wolf.colidiu(nota.sprite):
+                nota.exibe()
+
+            if self.wolf.colidiu(self.cofre.sprite) and self.cofre.travado:
+                self.cofre.destrava(self.notas[0].codigo)
+                if not self.cofre.travado:
+                    Mensagem("Abriu!.", "WOLF", self.console)
+
             for porta in self.portas:
                 if self.wolf.colidiu(porta.sprite):
                     if not porta.travada:
@@ -281,6 +297,9 @@ class Floor2:
             porta.desenha()
         for movel in self.moveis:
             movel.desenha()
+        for nota in self.notas:
+            nota.desenha()
+        self.cofre.desenha()
         if self.dev:
             self.desenhaAuxilio()
         self.wolf.desenha()

@@ -22,7 +22,7 @@ class Mensagem:
         while self.checaComandos():
             self.fundo.draw()
             self.narrador.draw()
-            self.console.janela.draw_text(texto, self.narrador.x+self.narrador.width+20, self.narrador.y+20, 26, (255, 255, 255), "Arial", True, False)
+            self.console.janela.draw_text(texto, self.narrador.x+self.narrador.width+20, self.narrador.y+20, 26, Cores.branco, "Arial", True, False)
             self.console.atualizaJanela()
 
     def checaComandos(self):
