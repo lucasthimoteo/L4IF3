@@ -125,12 +125,12 @@ class Porao:
         if self.console.apertou("ESC"):
             self.pausa()
 
-        if self.wolf.colidiu(self.detectorPorta) and self.gang.colidiu(self.detectorPorta) and self.portas[0].aberta:
-            self.portas[0].abre()
-            self.portas[0].aberta = False
-            self.portas[0].travada = True
+        # if self.wolf.colidiu(self.detectorPorta) and self.gang.colidiu(self.detectorPorta) and self.portas[0].aberta:
+        #     self.portas[0].abre()
+        #     self.portas[0].aberta = False
+        #     self.portas[0].travada = True
 
-        if self.wolf.colidiu(self.detectorInimigo) and self.gang.colidiu(self.detectorInimigo):
+        if self.wolf.colidiu(self.detectorInimigo) or self.gang.colidiu(self.detectorInimigo):
             self.inimigoAtivo = True
 
         self.checaInteratividade(self.wolf)
@@ -240,7 +240,7 @@ class Porao:
         fundo.y=200
         while self.checaComandosGameOver():
             fundo.draw()
-            self.console.janela.draw_text("GAME OVER", fundo.x+20,fundo.y + 20, 36,Cores.branco, "Arial", True, False)
+            self.console.janela.draw_text("Continua....", fundo.x+20,fundo.y + 20, 36,Cores.branco, "Arial", True, False)
             self.console.janela.draw_text("Aperte O para sair", fundo.x+20,fundo.y + 50, 36,Cores.branco, "Arial", False, False)
             self.console.atualizaJanela()
         self.console.atualizaJanela()

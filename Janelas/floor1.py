@@ -78,15 +78,16 @@ class Floor1:
 
         # neste ponto a tela da fase atual ja foi interiamente montada
         # A primeira fez q a fase FLOOR1 è iniciada uma sequencia da dialogos é iniciada
-        Mensagem("AHH!!", "GANG", self.console)
-        Mensagem("A porta se fechou atras de nos!", "GANG", self.console)
-        Mensagem("E agora?! O que fazemos?!", "GANG", self.console)
-        Mensagem("Eu nao sei... E a culpa disso é toda sua.", "WOLF", self.console)
-        Mensagem("Eu avisei que nao era uma boa ideia entrar nessa casa.", "WOLF", self.console)
-        Mensagem("De qualquer forma...", "WOLF", self.console)
-        Mensagem("Deve haver um jeito de sair daqui.", "WOLF", self.console)
-        Mensagem("Vamos procurar.", "WOLF", self.console)
-        Mensagem("Sim... Vamos!", "GANG", self.console)
+        self.atualizaJanela()
+        Mensagem("AHH!!", self.gang, self.console)
+        Mensagem("A porta se fechou atras de nos!", self.gang, self.console)
+        Mensagem("E agora?! O que fazemos?!", self.gang, self.console)
+        Mensagem("Eu nao sei... E a culpa disso é toda sua.", self.wolf, self.console)
+        Mensagem("Eu avisei que nao era uma boa ideia entrar nessa casa.", self.wolf, self.console)
+        Mensagem("De qualquer forma...", self.wolf, self.console)
+        Mensagem("Deve haver um jeito de sair daqui.", self.wolf, self.console)
+        Mensagem("Vamos procurar.", self.wolf, self.console)
+        Mensagem("Sim... Vamos!", self.gang, self.console)
 
         # comando q de fato inicializa o jogo com a jogabilidade
         self.play()
