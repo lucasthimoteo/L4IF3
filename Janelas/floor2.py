@@ -17,7 +17,7 @@ class Floor2:
     rodando = False
     pausado = False
     esc = False
-    dev = True  # developer
+    dev = False  # developer
 
     # Predefiniçao das fontes
     tamanho = 24
@@ -29,6 +29,7 @@ class Floor2:
     fundo = None
     delta = None
     paredes = None
+    forniture = None
     portas = None
     alavancas = None
     plataformas = None
@@ -47,9 +48,10 @@ class Floor2:
         self.console = console
 
         # Inicialização dos elementos da janela
-        self.fundo = GameImage("Imagens/Cenarios/1FLOOR/FUNDO.jpg")
+        self.fundo = GameImage("Imagens/Cenarios/FLOOR2/FUNDO.jpg")
 
         self.criaParedes()
+        self.criaForniture()
         self.criaObjetosInterativos()
 
         # Inicialização dos personagens
@@ -61,6 +63,7 @@ class Floor2:
         self.objetosSolidos = []
 
     def play(self):
+        Sons.fundo.play()
         self.rodando = True
         while self.rodando:
             Constantes.delta = self.console.delta()
@@ -95,6 +98,26 @@ class Floor2:
 
         for i in range(len(self.paredes)):
             self.paredes[i].setXY(posicoes[i][0], posicoes[i][1])
+
+    def criaForniture(self):
+        letras = list(string.ascii_uppercase[:12])
+        self.forniture = []
+        for x in letras:
+            self.forniture += [Parede("Imagens\Objetos\Forniture\FLOOR2/" + x + ".png")]
+        posicoes = [[700, 60],
+                    [550, 60],
+                    [700, 200],
+                    [410, 60],
+                    [410, 250],
+                    [410, 310],
+                    [500, 450],
+                    [550, 400],
+                    [60, 60],
+                    [60, 200],
+                    [60, 400],
+                    [350,350]]
+        for i in range(len(self.forniture)):
+            self.forniture[i].setXY(posicoes[i][0], posicoes[i][1])
 
     def criaObjetosInterativos(self):
 
@@ -138,7 +161,7 @@ class Floor2:
         self.checaInteratividade(self.gang)
 
         self.objetosSolidos.clear()
-        self.objetosSolidos += self.paredes + self.portas + self.moveis + [self.cofre]
+        self.objetosSolidos += self.paredes + self.portas + self.moveis + [self.cofre] + self.forniture
         self.checaMovimento(self.wolf)
         self.checaMovimento(self.gang)
 
@@ -189,7 +212,7 @@ class Floor2:
                     personagem.pega(chave)
 
             movel = self.moveis[0]
-            if personagem.colideSul(movel.sprite):
+            if personagem.colideSul(movel.sprite) and not movel.moveu:
                 movel.empurra()
                 Mensagem("Se moveu.", personagem, self.console)
 
@@ -207,6 +230,7 @@ class Floor2:
             for porta in self.portas:
                 if personagem.colidiu(porta.sprite):
                     if not porta.travada:
+                        Sons.portaAbrir.play()
                         porta.abre()
                     else:
                         if not len(personagem.inventario) == 0:
@@ -214,19 +238,25 @@ class Floor2:
                                 if isinstance(objeto, Chave):
                                     if porta.destrava(objeto.codigo):
                                         personagem.inventario.remove(objeto)
+                                        Sons.portaDestrava.play()
                                         Mensagem("Oh... A porta abriu.", personagem, self.console)
                             if porta.travada:
+                                Sons.portaDestrava.play()
                                 Mensagem("A porta esta trancada.", personagem, self.console)
                         else:
+                            Sons.portaDestrava.play()
                             Mensagem("A porta esta trancada.", personagem, self.console)
 
     def pausa(self):
-
+        fundo = Sprite("Imagens\Cenarios\Mensagem\FUNDOMENSAGEM.jpg")
+        fundo.x=10
+        fundo.y=200
         while self.checaComandosPausado():
-            self.console.janela.draw_text("Aperte O para sair e ESC para cancelar", self.console.janela.width * 0.2,
-                                          self.console.janela.height / 2, 36,
-                                          (0, 250, 250), "Arial", False, False)
+            fundo.draw()
+
+            self.console.janela.draw_text("Aperte O para sair", fundo.x+20,fundo.y + 50, 36,Cores.branco, "Arial", False, False)
             self.console.atualizaJanela()
+        self.console.atualizaJanela()
 
     def desenhaAuxilio(self):
         for x in self.paredes:
@@ -237,6 +267,8 @@ class Floor2:
 
     def atualizaJanela(self):
         self.fundo.draw()
+        for forn in self.forniture:
+            forn.sprite.draw()
         for porta in self.portas:
             porta.desenha()
         for movel in self.moveis:
@@ -257,7 +289,7 @@ class Floor2:
     def checaComandosPausado(self):
         self.console.resetaUlt()
 
-        if self.console.apertou("ESC"):
+        if self.console.apertou("SPACE"):
             return False
         if self.console.apertou("O"):
             self.rodando = False

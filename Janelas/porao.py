@@ -18,7 +18,7 @@ class Porao:
     rodando = False
     pausado = False
     esc = False
-    dev = True  # developer
+    dev = False  # developer
 
     # Predefiniçao das fontes
     tamanho = 24
@@ -47,7 +47,7 @@ class Porao:
         self.console = console
 
         # Inicialização dos elementos da janela
-        self.fundo = GameImage("Imagens/Cenarios/1FLOOR/FUNDO.jpg")
+        self.fundo = GameImage("Imagens/Cenarios/PORAO/FUNDO.jpg")
 
         self.criaParedes()
 
@@ -147,7 +147,7 @@ class Porao:
             self.inimigo.x-=Constantes.velocidadeBoneco * 1.5 * Constantes.delta
 
         if self.inimigo.x < self.wolf.sprite.x + self.wolf.sprite.width+5 or self.inimigo.x < self.gang.sprite.x + self.gang.sprite.width+5:
-            self.pausa()
+            self.gameOver()
 
         if self.console.pressionou(personagem.up):
             b = False
@@ -224,12 +224,26 @@ class Porao:
                             Mensagem("A porta esta trancada.", personagem, self.console)
 
     def pausa(self):
-
+        fundo = Sprite("Imagens\Cenarios\Mensagem\FUNDOMENSAGEM.jpg")
+        fundo.x=10
+        fundo.y=200
         while self.checaComandosPausado():
-            self.console.janela.draw_text("Aperte O para sair e ESC para cancelar", self.console.janela.width * 0.2,
-                                          self.console.janela.height / 2, 36,
-                                          (0, 250, 250), "Arial", False, False)
+            fundo.draw()
+
+            self.console.janela.draw_text("Aperte O para sair", fundo.x+20,fundo.y + 50, 36,Cores.branco, "Arial", False, False)
             self.console.atualizaJanela()
+        self.console.atualizaJanela()
+
+    def gameOver(self):
+        fundo = Sprite("Imagens\Cenarios\Mensagem\FUNDOMENSAGEM.jpg")
+        fundo.x=10
+        fundo.y=200
+        while self.checaComandosGameOver():
+            fundo.draw()
+            self.console.janela.draw_text("GAME OVER", fundo.x+20,fundo.y + 20, 36,Cores.branco, "Arial", True, False)
+            self.console.janela.draw_text("Aperte O para sair", fundo.x+20,fundo.y + 50, 36,Cores.branco, "Arial", False, False)
+            self.console.atualizaJanela()
+        self.console.atualizaJanela()
 
     def desenhaAuxilio(self):
         for x in self.paredes:
@@ -260,8 +274,17 @@ class Porao:
     def checaComandosPausado(self):
         self.console.resetaUlt()
 
-        if self.console.apertou("ESC"):
+        if self.console.apertou("SPACE"):
             return False
+        if self.console.apertou("O"):
+            self.rodando = False
+            self.esc = True
+            return False
+        return True
+
+    def checaComandosGameOver(self):
+        self.console.resetaUlt()
+
         if self.console.apertou("O"):
             self.rodando = False
             self.esc = True

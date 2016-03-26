@@ -1,6 +1,7 @@
 from PPlay.sprite import *
 
 from Util.constantes import *
+from Util.sons import Sons
 
 
 class Boneco:
@@ -29,7 +30,8 @@ class Boneco:
 
     def __init__(self, personagem, controle):
         # Inicializacao das variaveis
-        self.sprite = Sprite("Imagens\Personagens/" + personagem + ".png")
+        self.sprite = Sprite("Imagens\Personagens/" + personagem + ".png",4)
+        self.sprite.set_total_duration(1000)
         self.nome = personagem
         self.sprite.x = self.iniPosX
         self.sprite.y = self.iniPosY
@@ -76,6 +78,8 @@ class Boneco:
         self.colisorLeste.draw()
 
     def andaNorte(self):
+        self.sprite.update()
+        Sons.passo.play()
         self.sprite.y -= self.velocidade * Constantes.delta
         self.colisorNorte.y -= self.velocidade * Constantes.delta
         self.colisorSul.y -= self.velocidade * Constantes.delta
@@ -83,6 +87,8 @@ class Boneco:
         self.colisorLeste.y -= self.velocidade * Constantes.delta
 
     def andaSul(self):
+        self.sprite.update()
+        Sons.passo.play()
         self.sprite.y += self.velocidade * Constantes.delta
         self.colisorNorte.y += self.velocidade * Constantes.delta
         self.colisorSul.y += self.velocidade * Constantes.delta
@@ -90,6 +96,8 @@ class Boneco:
         self.colisorLeste.y += self.velocidade * Constantes.delta
 
     def andaOeste(self):
+        self.sprite.update()
+        Sons.passo.play()
         self.sprite.x -= self.velocidade * Constantes.delta
         self.colisorNorte.x -= self.velocidade * Constantes.delta
         self.colisorSul.x -= self.velocidade * Constantes.delta
@@ -97,6 +105,8 @@ class Boneco:
         self.colisorLeste.x -= self.velocidade * Constantes.delta
 
     def andaLeste(self):
+        self.sprite.update()
+        Sons.passo.play()
         self.sprite.x += self.velocidade * Constantes.delta
         self.colisorNorte.x += self.velocidade * Constantes.delta
         self.colisorSul.x += self.velocidade * Constantes.delta

@@ -4,6 +4,7 @@ from PPlay.sprite import *
 class Movel:
     sprite = None
     console = None
+    moveu = False
     iniPosX = 0
     iniPosY = 0
     fimPosX = 0
@@ -20,6 +21,7 @@ class Movel:
         self.sprite.y = self.iniPosY
 
     def empurra(self):
+        self.moveu = True
         self.sprite.x = self.fimPosX
         self.sprite.y = self.fimPosY
 

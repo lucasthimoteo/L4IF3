@@ -1,5 +1,5 @@
 from PPlay.sprite import *
-
+from PPlay.sound import *
 
 class Porta:
     sprite = None
@@ -11,6 +11,7 @@ class Porta:
     travada = None
     aberta = False
     delay = 0
+
 
     def __init__(self, orientacao, iniPosx, iniPosY, travada, codigo):
         self.travada = travada
@@ -29,6 +30,7 @@ class Porta:
             self.sprite = self.spriteH
 
     def abre(self):
+
         self.aberta = True
         if self.sprite == self.spriteH:
             self.sprite = self.spriteV
@@ -36,6 +38,7 @@ class Porta:
             self.sprite = self.spriteH
 
     def destrava(self, codigo):
+
         if self.codigo == codigo:
             self.travada = False
             return True
