@@ -29,7 +29,6 @@ class Nota:
         self.nota.y = Constantes.alturaJanela / 2 - self.nota.height / 2
         if nome == "LIVRO":
             self.codigo = randint(1000, 9999)
-            print(self.codigo)
             self.delay=Constantes.delayNota
 
     def atualiza(self):
@@ -38,7 +37,6 @@ class Nota:
         else:
             self.delay = Constantes.delayNota
             self.codigo = randint(1000,9999)
-            print(self.codigo)
 
 
     def exibe(self,continuar):

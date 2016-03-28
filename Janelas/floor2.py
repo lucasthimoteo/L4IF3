@@ -115,7 +115,7 @@ class Floor2:
                     [60, 60],
                     [60, 200],
                     [60, 400],
-                    [350,350]]
+                    [350, 350]]
         for i in range(len(self.forniture)):
             self.forniture[i].setXY(posicoes[i][0], posicoes[i][1])
 
@@ -249,12 +249,13 @@ class Floor2:
 
     def pausa(self):
         fundo = Sprite("Imagens\Cenarios\Mensagem\FUNDOMENSAGEM.jpg")
-        fundo.x=10
-        fundo.y=200
+        fundo.x = 10
+        fundo.y = 200
         while self.checaComandosPausado():
             fundo.draw()
 
-            self.console.janela.draw_text("Aperte O para sair", fundo.x+20,fundo.y + 50, 36,Cores.branco, "Arial", False, False)
+            self.console.janela.draw_text("Aperte O para sair", fundo.x + 20, fundo.y + 50, 36, Cores.branco, "Arial",
+                                          False, False)
             self.console.atualizaJanela()
         self.console.atualizaJanela()
 
